@@ -70,22 +70,50 @@ A macroecological approach to community ecology
 
 
 
-# Of rodents and randomness
+## Of rodents and randomness
 
-### Chapter 1
+**I. How do community-level properties respond to species loss?**
 
-How do community-level properties respond to species loss? A long-term experimental perspective
+A long-term experimental perspective
 
-### Chapter 2
+**II. How do changes in community structure modulate long-term trends in biodiversity?**
 
-How do changes in community structure modulate long-term trends in biodiversity? A continental-scale synthesis
+A continental-scale synthesis
 
-### Chapter 3 
+**III. What can ubiquitous mathematical constraints on complex systems reveal about "laws" in community ecology?**
 
-What can ubiquitous mathematical constraints on complex systems reveal about "laws" in ecology? A cross-disciplinary synthesis
+A cross-disciplinary synthesis
 
 ## 
 
 (logos/some acknowledgement of: research computing, bbs, portal, open data/open access; r....? IDK if this goes)
 
-# 
+# I. Impacts of species loss on community function in a changing world
+
+## 
+
+(placeholder for google map of portal and a cute krat)
+
+
+## Community function
+
+Total **energy use** or **biomass**
+
+## Species loss directly impacts function
+
+## Compensation can offset declines in function due to species loss
+
+## Compensation linked to functional redundancy
+
+## Functional redundancy may change over time
+
+**Metacommunity** dynamics
+
+Changes in the dynamics between the **same set of species**
+
+**Impacts of species loss on community function may therefore be temporally variable and context dependent**
+
+
+## The Portal Project
+
+
