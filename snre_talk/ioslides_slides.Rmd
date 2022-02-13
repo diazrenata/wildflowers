@@ -8,6 +8,9 @@ output: ioslides_presentation
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+theme_set(theme_bw())
 ```
 
 
@@ -53,14 +56,36 @@ A macroecological approach to community ecology
     - focus on emergent phenomena
     - methods and concepts transcend disciplines
 
-# Of rodents and randomness
 
 ## 
 
-### Chapter 1 description
-
-### Chapter 2 description
-
-### Chapter 3 description
+A macroecological approach to community ecology
 
 
+- Focus on **community-level properties**
+    - Total **abundance**, **biomass**, **energy use**
+- **Distributions** among species and organisms 
+
+<!-- here you will want to illustrate SADs and ISDs, at least. but also not sure if this slide even belongs here --> 
+
+
+
+# Of rodents and randomness
+
+### Chapter 1
+
+How do community-level properties respond to species loss? A long-term experimental perspective
+
+### Chapter 2
+
+How do changes in community structure modulate long-term trends in biodiversity? A continental-scale synthesis
+
+### Chapter 3 
+
+What can ubiquitous mathematical constraints on complex systems reveal about "laws" in ecology? A cross-disciplinary synthesis
+
+## 
+
+(logos/some acknowledgement of: research computing, bbs, portal, open data/open access; r....? IDK if this goes)
+
+# 
