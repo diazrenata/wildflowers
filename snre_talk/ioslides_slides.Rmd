@@ -101,19 +101,143 @@ Total **energy use** or **biomass**
 
 ## Species loss directly impacts function
 
+(illustration of removal of kangaroo rats --> less etot)
+
 ## Compensation can offset declines in function due to species loss
+
+(illustration of removal of kangaroo rats, but more pb --> the same etot)
 
 ## Compensation linked to functional redundancy
 
 ## Functional redundancy may change over time
 
-**Metacommunity** dynamics
+Addition of new species from the **metacommunity**
 
-Changes in the dynamics between the **same set of species**
+Changes in the dynamics between the **species already present**
 
 **Impacts of species loss on community function may therefore be temporally variable and context dependent**
 
 
 ## The Portal Project
+
+Long-term experiment examining the consequences of species loss in a desert ecosystem
+
+## The Portal Project
+
+(cute krat pic)
+
+Kangaroo rats are key players in this system
+
+## The Portal Project
+
+(pic of exclosure plot fencing? rodent census happening?)
+
+**How do community properties respond to kangaroo rat removal?**
+
+## The Portal Project
+
+(pic of binders of data?)
+
+Over 40 years of data and 500+ rodent censuses
+
+**How do these responses change over time?**
+
+## Community reorganization events
+
+(figure of PB % community energy use, pic of PB?)
+
+## Long-term environmental change
+
+(figure of Dipo % community energy use)
+
+##
+
+**How have shifts in community composition and species interactions affected how community function responds to kangaroo rat removal?**
+
+## 
+
+(plot of energetic compensation)
+
+**Compensatory dynamics linked to C. baileyi**
+
+## 
+
+(plot of energetic compensation, highlight 1996)
+
+The 1996 transition is PB colonizing the site
+
+##
+
+(plot of energetic compensation, highlight 2010)
+
+The 2010 transition is PB falling out of the site 
+
+## 
+
+(plot of energetic compensation, highlight 2010)
+
+(inset plot of PB % abundance - still present)
+
+**Decline in functional redundancy among the same set of species**
+
+<!-- this next may be a detour that we don't have time for --> 
+
+<!-- ##  -->
+
+<!-- (plot of total energy use) -->
+
+<!-- Total energy use remains higher since 2010 than pre-1996 -->
+
+<!-- ##  -->
+
+<!-- (plot of total energy use) -->
+
+<!-- (inset % dipo energy use) -->
+
+<!-- The altered net effect is due to a long-term shift in community composition -->
+
+## 
+
+**Compensation for species loss is context dependent**
+
+Species that compensate under some conditions may not under others
+
+As conditions change, new species may be required to maintain or restore community function 
+
+This may be difficult or impossible in the Anthropocene
+
+##
+
+Link/tinyurl to:
+
+- preprint/Ecology page
+- Git repo
+
+# II. Shifts in community structure modulate long-term trends in community-level properties
+
+## Long-term trends in biodiversity
+
+(collage of biodiversity trends papers titles? I hate those)
+
+What are long term trends in biological diversity?
+
+Specifically, community-level **abundance** and **function**?
+
+## Currencies of community abundance
+
+(illustration of total abundance vs total biomass, total bmr)
+
+Size- and abundance- based currencies are linked, but not equivalent
+
+## Decoupling between different currencies
+
+(illustration of shifts in community structure decoupling)
+
+Size shifts can decouple trends in abundance, biomass, and energy use
+
+## 
+
+
+
 
 
