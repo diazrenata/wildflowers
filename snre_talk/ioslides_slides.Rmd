@@ -235,9 +235,110 @@ Size- and abundance- based currencies are linked, but not equivalent
 
 Size shifts can decouple trends in abundance, biomass, and energy use
 
+## Barriers to synthesis
+
+Aquatic, tree systems: Plentiful data and statistically well-behaved size structures
+
+(plot of tree ISD?)
+
+
+## Barriers to synthesis
+
+Terrestrial animal systems: Relatively little data and statistically complex size structures
+
+(plot of bird ISD - Thibault or one of these)
+
+## Recent advances 
+
+Allometry --> estimates of size measurements
+
+Statistical and null model approaches to work with complex ISDs and temporal dynamics
+
+## Continental-scale synthesis
+
+Breeding Bird Survey: Continental-scale citizen science beginning in 1963
+
+High-performance computing for data-intensive synthesis
+
+##
+
+**What are the 30-year trends in abundance, biomass, and energy use for breeding bird communities in North America?**
+
+**Do these currencies have similar or contrasting trends?**
+
+**How do changes in community structure decouple long-term trends in community-level properties?**
+
 ## 
 
+(illustration of possible long-term trends: increase, decrease, no trend that can be either flat or high var no trend)
+
+##
+
+(illustration of possible signatures of coupling/decoupling)
+
+##
+
+(illustration of possible signatures of coupling/decoupling)
+
+(add illustration of how the size structure can contribute there - cartoon perhaps - very strong/simple size shift)
+
+## 
+
+(return to illustration of possible outcomes and add %/count breakdown)
+
+For about 1/3 of routes, no temporal trend.
+
+For the rest, a mixture of ~joint and decoupled trends.
+
+## 
+
+(plot of abundance-driven dynamics)
+
+Changes in community-wide **abundance** are dominated by declines
+
+## 
+
+(add plot of biomass-driven dynamics)
+
+However, changes in community-wide **biomass** are equally split among declines and increases
+
+<!-- ## energy use might be a detour-->
+
+<!-- (add plot of energy-driven dynamics?) -->
+
+<!-- And changes in **energy use** are again more similar to abundance -->
 
 
+##
 
+(Visualizing decoupling plot)
+
+When abundance and biomass don't change together, biomass typically declines less than abundance.
+
+##
+
+(Add mean mass plot)
+
+So **increases** in mean body size are offsetting change in biomass expected given change in abundance.
+
+
+##
+
+**Contrasts** with general concerns about size-biased extinctions/defaunation in the Anthropocene
+
+**Consistent** with trends observed for BBS
+
+**Illustrates** that these currencies are nonequivalent
+
+## 
+
+link to github repo
+
+## 
+
+link to github repo
+
+add link to BBSsize github repo and pkgdown site; talk about scientific software in support of re-use/re-deployment of size data methods
+
+# III. Ecological communities as complex systems: the species abundance distribution as a case study
 
