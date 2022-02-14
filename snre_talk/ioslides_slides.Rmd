@@ -342,3 +342,74 @@ add link to BBSsize github repo and pkgdown site; talk about scientific software
 
 # III. Ecological communities as complex systems: the species abundance distribution as a case study
 
+## Community ecology is a mess
+
+## General phenomena = general process?
+
+SADs are hollow curves
+
+## Mathematical contributions to emergent phenomena
+
+Illustrate feasible set
+
+## "Statistical baselines" for ecological process
+
+Illustrate deviation from feasible set
+
+(include %ile score, use evenness)
+
+## Questions
+
+**How common are deviations from statistical baselines?**
+
+**What do they suggest about ecological effects on the SAD?**
+
+## Challenges
+
+Sampling the feasible set is nontrivial --> thank you Hao!
+
+Taxonomic breadth --> abundance data is widely available and highly general; 22k communities
+
+Computational capacity, robust code --> HiPerGator
+
+## Empirical SADs deviate from their baselines
+
+(histogram may not be the best visualization of this)
+
+## Deviations vary among different systems
+
+(highlight Gentry communities - biological reasons)
+
+## Deviations vary among different systems
+
+(highlight FIA communities - small N problem)
+
+## 
+
+Statistical baselines are a promising approach; much more to dig into
+
+Ecological applications will encounter challenges uncommon in e.g. physics
+
+Modern computational methods can help navigate these challenges
+
+##
+
+link to scadsanalysis, feasiblesads, ecolett paper
+
+# Acknowledgements
+
+## Entities
+
+NSF; Portal Project; data collection; HiPerGator; R/ROpenSci; SNRE and WEC; weecology
+
+## Humans
+
+Mentors past and present: SKME, EPW, JG, JK, RMP
+
+UF folks, esp. HY, EKB, JS, EMC, PKD, GMY, SZ, JBP
+
+RKrh, TORN
+
+# Questions
+
+# Contact
