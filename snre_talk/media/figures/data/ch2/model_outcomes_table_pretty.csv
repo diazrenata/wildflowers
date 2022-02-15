@@ -1,0 +1,7 @@
+"Currency","Selected model","Number of routes","Proportion of routes"
+"Total biomass","Intercept-only",239,0.32
+"Total biomass","Trend, not decoupled",351,0.47
+"Total biomass","Decoupled trend",149,0.2
+"Total metabolic flux","Intercept-only",230,0.31
+"Total metabolic flux","Trend, not decoupled",456,0.62
+"Total metabolic flux","Decoupled trend",53,0.07

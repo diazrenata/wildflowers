@@ -1,0 +1,27 @@
+---
+title: "Chapter 1 figures"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r chapter specific setup}
+
+library(soar)
+
+plotl <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch1", "plotl.csv"), stringsAsFactors = F)
+
+plotl <- plotl %>%
+  filter(plot != 19) # to be consistent with pub
+
+treatl <- plots_to_treatment_means(plotl)
+
+total_e_ratio <- get_e_ratio(treatl)
+compensation <- get_compensation(treatl)
+
+```
+

@@ -92,30 +92,46 @@ A cross-disciplinary synthesis
 
 # I. Impacts of species loss on community function in a changing world
 
-## 
+##
 
-(placeholder for google map of portal and a cute krat)
+![](media/illustrations/ch1/portal_location_1.png)
 
+##
+
+![](media/illustrations/ch1/portal_location_2.png) 
 
 ## Community function
 
-Total **energy use** or **biomass**
+![Total biomass](media/illustrations/ch1/total_biomass_1.png)
+
+## Community function
+
+![Total energy use](media/illustrations/ch1/total_energy_1.png) 
 
 ## Species loss directly impacts function
 
-(illustration of removal of kangaroo rats --> less etot)
+![Loss impacts function](media/illustrations/ch1/loss_to_fxn_1.png)
 
 ## Compensation can offset declines in function due to species loss
 
-(illustration of removal of kangaroo rats, but more pb --> the same etot)
+![Compensation restores function](media/illustrations/ch1/loss_to_fxn_2.png)
 
 ## Compensation linked to functional redundancy
 
+![](media/illustrations/ch1/fr1.png)
+
 ## Functional redundancy may change over time
 
-Addition of new species from the **metacommunity**
+![Addition of new species from the **metacommunity**](media/illustrations/ch1/fr2.png)
 
-Changes in the dynamics between the **species already present**
+
+
+## Functional redundancy may change over time
+
+![Changes in the dynamics of species **already present**](media/illustrations/ch1/fr3.png)
+
+
+## Functional redundancy may change over time
 
 **Impacts of species loss on community function may therefore be temporally variable and context dependent**
 
