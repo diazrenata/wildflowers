@@ -3,7 +3,9 @@ title: "Of rodents and randomness"
 subtitle: "Macroecological approaches to community structure"
 date: "February 28, 2022"
 author: "Renata M. Diaz"
-output: ioslides_presentation
+output: 
+    powerpoint_presentation:
+        reference_doc: slides_template.pptx
 ---
 
 ```{r setup, include=FALSE}
@@ -410,6 +412,8 @@ UF folks, esp. HY, EKB, JS, EMC, PKD, GMY, SZ, JBP
 
 RKrh, TORN
 
-# Questions
+## Questions
 
-# Contact
+
+renata.diaz@weecology.org
+https://diazrenata.github.io/home
