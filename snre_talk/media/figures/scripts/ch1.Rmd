@@ -7,21 +7,97 @@ output: github_document
 knitr::opts_chunk$set(echo = FALSE)
 library(dplyr)
 library(ggplot2)
+theme_set(theme_light())
+
+both_scale <- scale_color_viridis_d(option = "cividis", begin = .1, end = .8, direction = -1)
+both_fscale <- scale_fill_viridis_d(option = "cividis", begin = .1, end = .8, direction = -1)
+
 ```
 
 ```{r chapter specific setup}
 
 library(soar)
+library(nlme)
+library(emmeans)
 
 plotl <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch1", "plotl.csv"), stringsAsFactors = F)
+eras <- make_era_df()%>%
+  mutate(event_name = ifelse(grepl("baileyi", event_name), event_name, "C. baileyi decline"))
+
 
 plotl <- plotl %>%
   filter(plot != 19) # to be consistent with pub
 
-treatl <- plots_to_treatment_means(plotl)
+treatl <- plots_to_treatment_means(plotl) %>%
+  mutate(censusdate = as.Date(censusdate))
 
 total_e_ratio <- get_e_ratio(treatl)
 compensation <- get_compensation(treatl)
+pb_ratio <- get_pb(treatl) %>%
+  mutate(Treatment = ifelse(oplottype == "CC", "Control", "Exclosure"))
+dipo_ratio <- get_dipo_c(treatl)
 
 ```
 
+```{r pb ts plot}
+
+pb_ts_plot <- ggplot(pb_ratio, aes(censusdate, pb_prop_ma, color = Treatment)) + 
+  geom_line() +
+  geom_segment(data = eras, aes(x = event_date, xend = event_date, y = 0, yend = 1), inherit.aes = F, linetype = 2) +
+  both_scale +
+  xlab("Date") + 
+  ylab("C. baileyi proportional energy use") +
+  theme(legend.position = "bottom")
+
+pb_ts_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "pb_prop_ma.jpg"), plot = pb_ts_plot, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+```
+
+```{r compensation full plot}
+
+comp_mean_gls <- gls(smgran_comp ~ oera,  correlation = corCAR1(form = ~ period), data = compensation)
+
+comp_mean_gls_emmeans <- emmeans(comp_mean_gls, specs = ~ oera)
+
+comp_mean_pred <-  as.data.frame(comp_mean_gls_emmeans) %>%
+  mutate(oera = ordered(oera)) %>%
+  right_join(compensation)
+
+
+
+comp_plot <- ggplot(filter(comp_mean_pred, oplottype %in% c("CC", "EE")), aes(censusdate, emmean)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = lower.CL, ymax = upper.CL), alpha = .2) +
+  geom_line(aes(y = smgran_comp_ma)) +
+  ggtitle("Compensation for kangaroo rat removal") +
+  ylab("Compensation (proportion)") +
+  xlab("Date") +
+  ylim(0, 1.5)
+
+comp_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "comp_plot.jpg"), plot = comp_plot, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+
+
+
+comp_plot_96 <- comp_plot +
+  geom_text(data = filter(eras, event_period < 300), aes(x = event_date, y = 1.5, label = event_name), color = "red", inherit.aes = F) +
+    geom_segment(data = filter(eras, event_period < 300), aes(x = event_date, xend = event_date, y = 0, yend = 1.4), inherit.aes = F, linetype = 2, color = "red") 
+
+comp_plot_96
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "comp_plot_96.jpg"), plot = comp_plot_96, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+
+
+
+
+comp_plot_both <- comp_plot +
+  geom_text(data = eras, aes(x = event_date, y = 1.5, label = event_name), color = "red", inherit.aes = F) +
+    geom_segment(data = eras, aes(x = event_date, xend = event_date, y = 0, yend = 1.4), inherit.aes = F, linetype = 2, color = "red") 
+
+comp_plot_both
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "comp_plot_both.jpg"), plot = comp_plot_both, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+
+```
