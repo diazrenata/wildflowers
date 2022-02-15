@@ -402,7 +402,7 @@ link to scadsanalysis, feasiblesads, ecolett paper
 
 ## Entities
 
-NSF; Portal Project; data collection; HiPerGator; R/ROpenSci; SNRE and WEC; weecology
+NSF; Portal Project; data collection; HiPerGator; SNRE and WEC; weecology
 
 ## Humans
 
