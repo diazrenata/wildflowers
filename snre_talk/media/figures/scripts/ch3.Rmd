@@ -1,0 +1,80 @@
+---
+title: "Chapter 3 figures"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+theme_set(theme_bw())
+
+both_scale <- scale_color_viridis_d(option = "cividis", begin = .1, end = .8, direction = -1)
+both_fscale <- scale_fill_viridis_d(option = "cividis", begin = .1, end = .8, direction = -1)
+
+```
+
+```{r chapter specific setup}
+
+library(scadsanalysis)
+library(multipanelfigure)
+
+```
+
+```{r some demo sads, fig.dim = c(6,3)}
+
+bbs_spab <- scadsanalysis::load_dataset("bbs", here::here("snre_talk", "media", "figures", "data", "ch3"))
+
+mouse_spab <- portalr::abundance(time = "date", level = "treatment") 
+  
+
+plant_spab <- scadsanalysis::load_dataset("portal_plants", here::here("snre_talk", "media", "figures", "data", "ch3"))
+
+a_bird_sad <- bbs_spab %>%
+  filter(site == 25009) %>%
+  mutate(taxon = "Birds")
+a_mammal_sad <- mouse_spab %>%
+  mutate(year = as.integer(format.Date(censusdate, "%Y"))) %>%
+  filter(treatment == "control",
+         year %in% 1994:1999) %>%
+  select(-treatment, -year, -censusdate) %>%
+  mutate(id_col = dplyr::row_number()) %>%
+  tidyr::pivot_longer(-id_col, names_to = "sp", values_to = "abund") %>%
+  group_by(sp) %>%
+  summarize(abund = sum(abund)) %>%
+  ungroup() %>%
+  arrange(abund) %>%
+  mutate(rank = row_number()) %>%
+  mutate(taxon = "Desert rodents")
+a_plant_sad <- plant_spab %>%
+  filter(site == "1994_summer") %>%
+  mutate(taxon = "Desert annual plants")
+
+long_example_sads <- bind_rows(a_bird_sad, a_mammal_sad, a_plant_sad)
+
+
+# birds <- ggplot(a_bird_sad, aes(rank, abund)) +
+#   geom_line() + 
+#   ggtitle("Breeding birds") +
+#   xlab("Rank") +
+#   ylab("Abundance")
+# mice <- ggplot(a_mammal_sad, aes(rank, abund)) + 
+#   geom_line()+ 
+#   ggtitle("Desert rodents") +
+#   xlab("Rank") +
+#   ylab("Abundance")
+# plants <- ggplot(a_plant_sad, aes(rank, abund)) +
+#   geom_line()+ 
+#   ggtitle("Desert annuals") +
+#   xlab("Rank") +
+#   ylab("Abundance")
+
+example_sads_plot <- ggplot(long_example_sads, aes(rank, abund)) +
+  geom_line() +
+  facet_wrap(vars(taxon), ncol = 3, scales = "free") +
+  xlab("Rank") +
+  ylab("Abundance")
+example_sads_plot
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "example_sads_plot.jpg"), plot = example_sads_plot, device = "jpeg", width = 5, height = 2.5, units = "in", dpi = 600)
+
+```

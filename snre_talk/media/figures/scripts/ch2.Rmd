@@ -1,0 +1,143 @@
+---
+title: "Chapter 1 figures"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+theme_set(theme_bw())
+
+both_scale <- scale_color_viridis_d(option = "cividis", begin = .1, end = .8, direction = -1)
+both_fscale <- scale_fill_viridis_d(option = "cividis", begin = .1, end = .8, direction = -1)
+
+```
+
+```{r chapter specific setup}
+
+all_sims <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "all_sims.csv"), stringsAsFactors = F)
+demo_gmms <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "demo_gmms.csv"), stringsAsFactors = F)
+winning_fits <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "winning_fits.csv"), stringsAsFactors = F)
+```
+
+
+```{r illustration of possible temporal trends in one currency}
+
+rn <- "bbs_rtrg_28_4"
+
+real_biomass <- filter(all_sims, matssname == rn, source == "sim") %>%
+  mutate(time_direction = "Decreasing") 
+
+backward_biomass <- real_biomass %>%
+  mutate(timeperiod = rev(timeperiod),
+         time_direction = "Increasing")
+
+set.seed(1991)
+random_biomass <- real_biomass %>%
+  mutate(timeperiod = sample(timeperiod),
+         time_direction = "No directional trend")
+
+demo_dynamics <- bind_rows(real_biomass, backward_biomass, random_biomass)
+
+
+demo_dynamics_plot <- ggplot(demo_dynamics, aes(timeperiod, abundance)) + 
+  geom_line() + 
+  facet_wrap(vars(time_direction)) + 
+  geom_smooth(method = "lm", se = T, color = "black", linetype= 2, alpha = .15, size = .5) +
+  xlab("Year") +
+  ylab("Number of individuals") 
+
+demo_dynamics_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_dynamics_plot.jpg"), plot = demo_dynamics_plot, device = "jpeg", width = 5.5, height = 3, units = c("in"), dpi = 600)
+
+
+```
+
+```{r example of decoupling}
+
+real_decoupled <- filter(all_sims, matssname == rn) %>%
+    mutate(Currency = ifelse(source == "sim", "Individuals driven", "Biomass driven")) 
+
+decoupled_plot <- ggplot(real_decoupled, aes(timeperiod, total_biomass, color = Currency)) +
+  geom_point() +
+  geom_line() +
+  geom_smooth(method = "glm", method.args = c(family = "Gamma"), se = F, linetype = 2, size = .5) +
+  both_scale +
+  theme(legend.position = "bottom") +
+  xlab("Year") +
+  ylab("Expected biomass")
+
+decoupled_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_decouple_plot.jpg"), plot = decoupled_plot, device = "jpeg", width = 5.5, height = 3, units = c("in"), dpi = 600)
+
+```
+
+```{r example of size shifts}
+
+demo_gmms <- demo_gmms %>%
+    mutate(Currency = ifelse(Dynamics == "Abundance driven", "Individuals driven", "Biomass driven"),
+           `Time` = time)
+
+isd_plots <- ggplot(filter(demo_gmms, exp(mass) > 5, exp(mass) < 5000, Dynamics == "Observed"), aes(exp(mass), density, linetype = Time)) + 
+  geom_line() + 
+  theme(legend.position = "bottom") + 
+  ylab("Probability density")+ 
+  xlab("Mass (g); note log scale") +
+  scale_x_log10()
+isd_plots
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_size_shift.jpg"), plot = isd_plots, device = "jpeg", width = 5, height = 3, units = c("in"), dpi = 600)
+
+
+```
+
+```{r example of multimodal ISD}
+one_isd <- ggplot(filter(demo_gmms, exp(mass) > 5, exp(mass) < 5000, Dynamics == "Observed", Time == "begin"), aes(exp(mass), density)) + 
+  geom_line() + 
+  ylab("Probability density")+ 
+  xlab("Mass (g); note log scale") +
+  scale_x_log10()
+one_isd
+
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "one_isd.jpg"), plot = one_isd, device = "jpeg", width = 5, height = 3, units = c("in"), dpi = 600)
+
+```
+
+
+```{r example of possible couple decouple trends}
+
+
+
+real_coupled <- filter(all_sims, matssname == "bbs_rtrg_82_60") %>%
+    mutate(Currency = ifelse(source == "sim", "Individuals driven", "Biomass driven"),
+           Outcome = "Coupled trends")
+
+real_notrend <- filter(all_sims, matssname == "bbs_rtrg_50_27") %>%
+    mutate(Currency = ifelse(source == "sim", "Individuals driven", "Biomass driven"),
+           Outcome = "No directional trends")
+
+real_examples <- real_decoupled %>%
+  mutate(Outcome = "Decoupled trends") %>%
+  bind_rows(real_coupled) %>%
+  bind_rows(real_notrend)
+
+
+example_plot <- ggplot(real_examples, aes(timeperiod, total_biomass, color = Currency)) +
+  geom_point() +
+  geom_line() +
+  geom_smooth(method = "glm", method.args = c(family = "Gamma"), se = F, linetype = 2, size = .5) +
+  facet_wrap(vars(Outcome), scales = "free") +
+  both_scale +
+  theme(legend.position = "bottom") +
+  xlab("Year") +
+  ylab("Expected biomass")
+example_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_outcomes.jpg"), plot = example_plot, device = "jpeg", width =8, height = 3.5, units = c("in"), dpi = 600)
+
+
+```

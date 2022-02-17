@@ -18,55 +18,46 @@ theme_set(theme_bw())
 
 # Macroecology and community ecology
 
-## 
+## A macroecological approach to **community ecology**
 
-A macroecological approach to **community ecology**
+How (and why) are _abundance_, _biomass_, and _resource use_ distributed among species in ecological communities?
 
-- How (and why) are _abundance_, _biomass_, and _resource use_ distributed among species in ecological communities?
-- How (and why) does this change over time?
-- How (and why) do species' dynamics combine to produce community-level phenomena?
+How (and why) does this change over time?
 
-## 
+How (and why) do species' dynamics combine to produce community-level phenomena?
 
-A **macroecological approach** to community ecology
+## A **macroecological approach** to community ecology
 
-- "Community ecology is a mess"...
-- ...but may contain "fuzzy generalities"
+"Community ecology is a mess"...
 
+...but may contain "fuzzy generalities"
 
 
-## 
 
-A macroecological approach to community ecology
+## A macroecological approach to community ecology
 
-- is grounded in **ecology**: 
-    - natural history
-    - experiments
-    - classic concepts
+is grounded in **ecology**: 
 
-## 
+- natural history
+- experiments
+- classic concepts
 
-A macroecological approach to community ecology
+## A macroecological approach to community ecology
 
+draws on **complex systems science**:
 
-- is grounded in **ecology**: 
-    - natural history
-    - experiments
-    - classic concepts
-- draws on **complex systems science**:
-    - data-intensive synthesis
-    - focus on emergent phenomena
-    - methods and concepts transcend disciplines
+- data-intensive synthesis
+- focus on emergent phenomena
+- methods and concepts transcend disciplines
 
 
-## 
-
-A macroecological approach to community ecology
+## A macroecological approach to community ecology
 
 
-- Focus on **community-level properties**
-    - Total **abundance**, **biomass**, **energy use**
-- **Distributions** among species and organisms 
+Focus on **community-level properties**
+- Total **abundance**, **biomass**, **energy use**
+
+**Distributions** among species and organisms 
 
 <!-- here you will want to illustrate SADs and ISDs, at least. but also not sure if this slide even belongs here --> 
 
@@ -74,21 +65,11 @@ A macroecological approach to community ecology
 
 ## Of rodents and randomness
 
-**I. How do community-level properties respond to species loss?**
 
-A long-term experimental perspective
+1. How do community-level properties respond to species loss? _A long-term experimental perspective_
+2. How do changes in community structure modulate long-term trends in biodiversity? _A continental-scale synthesis_
+3. What can ubiquitous mathematical constraints on complex systems reveal about "laws" in community ecology? _A cross-disciplinary synthesis_
 
-**II. How do changes in community structure modulate long-term trends in biodiversity?**
-
-A continental-scale synthesis
-
-**III. What can ubiquitous mathematical constraints on complex systems reveal about "laws" in community ecology?**
-
-A cross-disciplinary synthesis
-
-## 
-
-(logos/some acknowledgement of: research computing, bbs, portal, open data/open access; r....? IDK if this goes)
 
 # I. Impacts of species loss on community function in a changing world
 
@@ -181,11 +162,11 @@ A cross-disciplinary synthesis
 ![](media/figures/figs/ch1/comp_plot.jpg)
 
 
-## 
+## Compensatory dynamics linked to C. baileyi
 
 ![](media/figures/figs/ch1/comp_plot_96.jpg)
 
-##
+## Compensatory dynamics linked to C. baileyi
 
 ![](media/figures/figs/ch1/comp_plot_both.jpg)
 
@@ -218,6 +199,8 @@ This may be difficult or impossible - especially in the Anthropocene
 
 ##
 
+<!-- Like everything in science, this is only a piece of a larger story...for slightly more see -->
+
 
 ![https://www.github.com/diazrenata/squareone](media/illustrations/ch1/ch1_ms_placeholder.png)
 
@@ -228,23 +211,41 @@ This may be difficult or impossible - especially in the Anthropocene
 
 ## Long-term trends in biodiversity
 
-(collage of biodiversity trends papers titles? I hate those)
+What are the long term trends in biological **abundance**?
 
-What are long term trends in biological diversity?
+Specifically, **community-level** abundance?
 
-Specifically, community-level **abundance** and **function**?
 
-## Currencies of community abundance
+## Possible long-term trends
 
-(illustration of total abundance vs total biomass, total bmr)
+![](media/figures/figs/ch2/demo_dynamics_plot.jpg)
 
-Size- and abundance- based currencies are linked, but not equivalent
+
+## Unpacking "abundance"
+
+Number of *individuals*
+
+Total *biomass*
+
+These currencies are *linked*, but not *equivalent*
 
 ## Decoupling between different currencies
 
-(illustration of shifts in community structure decoupling)
+![Individuals-driven dynamics decline more than biomass](media/figures/figs/ch2/demo_decouple_plot.jpg)
 
-Size shifts can decouple trends in abundance, biomass, and energy use
+
+
+## Decoupling between different currencies
+
+![Increase in community-wide body size decouples biomass from number of individuals](media/figures/figs/ch2/demo_size_shift.jpg)
+
+
+## Long-term trends in biodiversity
+
+What are the long term trends in biological **abundance**?
+
+How do changes in body size modulate trends in **number of individuals** and **total biomass**
+
 
 ## Barriers to synthesis
 
@@ -255,9 +256,8 @@ Aquatic, tree systems: Plentiful data and statistically well-behaved size struct
 
 ## Barriers to synthesis
 
-Terrestrial animal systems: Relatively little data and statistically complex size structures
+![Relatively little data and complex size structures](media/figures/figs/ch2/one_isd.jpg)
 
-(plot of bird ISD - Thibault or one of these)
 
 ## Recent advances 
 
@@ -273,33 +273,23 @@ High-performance computing for data-intensive synthesis
 
 ##
 
-**What are the 30-year trends in abundance, biomass, and energy use for breeding bird communities in North America?**
+<!-- this slide may now be redundant with earlier -->
+
+**What are the 30-year trends in abundance and biomass for breeding bird communities in North America?**
 
 **Do these currencies have similar or contrasting trends?**
 
 **How do changes in community structure decouple long-term trends in community-level properties?**
 
-## 
+## Possible outcomes
 
-(illustration of possible long-term trends: increase, decrease, no trend that can be either flat or high var no trend)
+![](media/figures/figs/ch2/demo_outcomes.jpg)
 
-##
 
-(illustration of possible signatures of coupling/decoupling)
+## Long-term trends: outcomes
 
-##
+![~50% coupled trends, ~20% decoupled trends, ~30% no directional trend](media/figures/figs/ch2/demo_outcomes.jpg)
 
-(illustration of possible signatures of coupling/decoupling)
-
-(add illustration of how the size structure can contribute there - cartoon perhaps - very strong/simple size shift)
-
-## 
-
-(return to illustration of possible outcomes and add %/count breakdown)
-
-For about 1/3 of routes, no temporal trend.
-
-For the rest, a mixture of ~joint and decoupled trends.
 
 ## 
 
@@ -353,11 +343,15 @@ add link to BBSsize github repo and pkgdown site; talk about scientific software
 
 # III. Ecological communities as complex systems: the species abundance distribution as a case study
 
-## Community ecology is a mess
+## 
 
-## General phenomena = general process?
+Community ecology is a mess
 
-SADs are hollow curves
+General phenomena = general process?
+
+##
+
+![J-shaped distribution of abundance is the rule](media/figures/figs/ch3/example_sads_plot.jpg)
 
 ## Mathematical contributions to emergent phenomena
 
