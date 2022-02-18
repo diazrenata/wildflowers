@@ -78,3 +78,33 @@ example_sads_plot
 ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "example_sads_plot.jpg"), plot = example_sads_plot, device = "jpeg", width = 5, height = 2.5, units = "in", dpi = 600)
 
 ```
+```{r feasible set}
+
+
+```
+
+
+```{r feasible set with deviation}
+
+
+```
+
+
+```{r s x n plot}
+
+```
+
+
+```{r overall deviations}
+
+
+```
+
+```{r gentry deviations}
+
+```
+
+```{r fia deviations}
+
+
+```

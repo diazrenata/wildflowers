@@ -202,9 +202,12 @@ This may be difficult or impossible - especially in the Anthropocene
 <!-- Like everything in science, this is only a piece of a larger story...for slightly more see -->
 
 
-![https://www.github.com/diazrenata/squareone](media/illustrations/ch1/ch1_ms_placeholder.png)
+![](media/illustrations/ch1/ch1_ms_placeholder.png)
 
+##
 
+https://www.github.com/diazrenata/squareone
+https://www.github.com/diazrenata/soar
 
 
 # II. Shifts in community structure modulate long-term trends in community-level properties
@@ -218,7 +221,7 @@ Specifically, **community-level** abundance?
 
 ## Possible long-term trends
 
-![](media/figures/figs/ch2/demo_dynamics_plot.jpg)
+![](media/figures/figs/ch2/demo_dynamics_plot.jpeg)
 
 
 ## Unpacking "abundance"
@@ -231,13 +234,13 @@ These currencies are *linked*, but not *equivalent*
 
 ## Decoupling between different currencies
 
-![Individuals-driven dynamics decline more than biomass](media/figures/figs/ch2/demo_decouple_plot.jpg)
+![Individuals-driven dynamics decline more than biomass](media/figures/figs/ch2/demo_decouple_plot.jpeg)
 
 
 
 ## Decoupling between different currencies
 
-![Increase in community-wide body size decouples biomass from number of individuals](media/figures/figs/ch2/demo_size_shift.jpg)
+![Increase in community-wide body size decouples biomass from number of individuals](media/figures/figs/ch2/demo_size_shift.jpeg)
 
 
 ## Long-term trends in biodiversity
@@ -256,7 +259,7 @@ Aquatic, tree systems: Plentiful data and statistically well-behaved size struct
 
 ## Barriers to synthesis
 
-![Relatively little data and complex size structures](media/figures/figs/ch2/one_isd.jpg)
+![Relatively little data and complex size structures](media/figures/figs/ch2/one_isd.jpeg)
 
 
 ## Recent advances 
@@ -283,25 +286,23 @@ High-performance computing for data-intensive synthesis
 
 ## Possible outcomes
 
-![](media/figures/figs/ch2/demo_outcomes.jpg)
+![](media/figures/figs/ch2/demo_outcomes.jpeg)
 
 
 ## Long-term trends: outcomes
 
-![~50% coupled trends, ~20% decoupled trends, ~30% no directional trend](media/figures/figs/ch2/demo_outcomes.jpg)
+![](media/figures/figs/ch2/demo_outcomes_annotated.jpeg)
 
 
 ## 
 
-(plot of abundance-driven dynamics)
+![Individuals-driven dynamics are dominated by declines](media/figures/figs/ch2/abundance_change.jpeg)
 
-Changes in community-wide **abundance** are dominated by declines
 
 ## 
 
-(add plot of biomass-driven dynamics)
+![Biomass-driven changes are evenly split between declines and increases](media/figures/figs/ch2/biomass_change.jpeg)
 
-However, changes in community-wide **biomass** are equally split among declines and increases
 
 <!-- ## energy use might be a detour-->
 
@@ -312,34 +313,29 @@ However, changes in community-wide **biomass** are equally split among declines 
 
 ##
 
-(Visualizing decoupling plot)
-
-When abundance and biomass don't change together, biomass typically declines less than abundance.
+![Slopes for biomass are less negative than for individuals](media/figures/figs/ch2/decoupled_slopes.jpeg)
 
 ##
 
-(Add mean mass plot)
-
-So **increases** in mean body size are offsetting change in biomass expected given change in abundance.
+![Increases in mean body size drive decoupling](media/figures/figs/ch2/mean_size_change.jpeg)
 
 
 ##
 
 **Contrasts** with general concerns about size-biased extinctions/defaunation in the Anthropocene
 
-**Consistent** with trends observed for BBS
+**Consistent** with trends observed for breeding birds in North America
 
 **Illustrates** that these currencies are nonequivalent
 
 ## 
 
-link to github repo
+https://www.github.com/diazrenata/invisible-string
 
 ## 
 
-link to github repo
+![R package to facilitate follow-ups](media/illustrations/ch2/BBSsize_placeholder.png)
 
-add link to BBSsize github repo and pkgdown site; talk about scientific software in support of re-use/re-deployment of size data methods
 
 # III. Ecological communities as complex systems: the species abundance distribution as a case study
 
@@ -391,15 +387,19 @@ Computational capacity, robust code --> HiPerGator
 
 ## 
 
-Statistical baselines are a promising approach; much more to dig into
+Deviations from statistical baselines can teach us about ecology
 
-Ecological applications will encounter challenges uncommon in e.g. physics
+Ecological applications will encounter challenges uncommon in "large-N" systems
 
 Modern computational methods can help navigate these challenges
 
 ##
 
-link to scadsanalysis, feasiblesads, ecolett paper
+https://www.github.com/diazrenata/scadsanalysis
+https://www.github.com/diazrenata/feasiblesads
+
+![](media/illustrations/ch3/sads_paper.png)
+
 
 # Acknowledgements
 

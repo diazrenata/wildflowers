@@ -19,6 +19,8 @@ both_fscale <- scale_fill_viridis_d(option = "cividis", begin = .1, end = .8, di
 all_sims <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "all_sims.csv"), stringsAsFactors = F)
 demo_gmms <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "demo_gmms.csv"), stringsAsFactors = F)
 winning_fits <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "winning_fits.csv"), stringsAsFactors = F)
+all_preds_b <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "all_preds_b.csv"), stringsAsFactors = F)
+all_preds_e <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch2", "all_preds_e.csv"), stringsAsFactors = F)
 ```
 
 
@@ -50,7 +52,7 @@ demo_dynamics_plot <- ggplot(demo_dynamics, aes(timeperiod, abundance)) +
 
 demo_dynamics_plot
 
-ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_dynamics_plot.jpg"), plot = demo_dynamics_plot, device = "jpeg", width = 5.5, height = 3, units = c("in"), dpi = 600)
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_dynamics_plot.jpeg"), plot = demo_dynamics_plot, device = "jpeg", width = 5.5, height = 3, units = c("in"), dpi = 600)
 
 
 ```
@@ -71,7 +73,7 @@ decoupled_plot <- ggplot(real_decoupled, aes(timeperiod, total_biomass, color = 
 
 decoupled_plot
 
-ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_decouple_plot.jpg"), plot = decoupled_plot, device = "jpeg", width = 5.5, height = 3, units = c("in"), dpi = 600)
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_decouple_plot.jpeg"), plot = decoupled_plot, device = "jpeg", width = 5.5, height = 3, units = c("in"), dpi = 600)
 
 ```
 
@@ -89,7 +91,7 @@ isd_plots <- ggplot(filter(demo_gmms, exp(mass) > 5, exp(mass) < 5000, Dynamics 
   scale_x_log10()
 isd_plots
 
-ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_size_shift.jpg"), plot = isd_plots, device = "jpeg", width = 5, height = 3, units = c("in"), dpi = 600)
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_size_shift.jpeg"), plot = isd_plots, device = "jpeg", width = 5, height = 3, units = c("in"), dpi = 600)
 
 
 ```
@@ -103,7 +105,7 @@ one_isd <- ggplot(filter(demo_gmms, exp(mass) > 5, exp(mass) < 5000, Dynamics ==
 one_isd
 
 
-ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "one_isd.jpg"), plot = one_isd, device = "jpeg", width = 5, height = 3, units = c("in"), dpi = 600)
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "one_isd.jpeg"), plot = one_isd, device = "jpeg", width = 5, height = 3, units = c("in"), dpi = 600)
 
 ```
 
@@ -137,7 +139,119 @@ example_plot <- ggplot(real_examples, aes(timeperiod, total_biomass, color = Cur
   ylab("Expected biomass")
 example_plot
 
-ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_outcomes.jpg"), plot = example_plot, device = "jpeg", width =8, height = 3.5, units = c("in"), dpi = 600)
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "demo_outcomes.jpeg"), plot = example_plot, device = "jpeg", width =8, height = 3.5, units = c("in"), dpi = 600)
 
+
+```
+
+
+```{r abundance and biomass change}
+
+trend_fits <- filter(winning_fits, modelcomplexity > 1) %>%
+  select(matssname, ratio_sim, ratio_real) %>%
+  tidyr::pivot_longer(-matssname, names_to = "sim", values_to = "Change") %>%
+  mutate(Currency = ifelse(sim == "ratio_sim", "Individuals driven", "Biomass driven"))
+
+trend_texts <- data.frame(
+  lat = c(.2, 3),
+  long = 60,
+  labs = c("67% decreases", "33% increases"),
+  Currency = "Individuals driven"
+)
+
+abundance_change <- ggplot(trend_fits, aes(Change, color = Currency, fill = Currency)) +
+  geom_point(aes(y = 0), alpha = 0) +
+  geom_histogram(data = filter(trend_fits, Currency == "Individuals driven"), boundary = 1) +
+  geom_vline(xintercept = 1) +
+  geom_text(data = trend_texts, aes(lat, long, label = labs)) +
+  scale_x_log10() +
+  xlab("Change over time\n(last fitted value/first fitted value; note log scale)") +
+  ylab("Number of communities") +
+  ggtitle("Individuals-driven change") +
+  both_scale + 
+  both_fscale +
+  theme(legend.position = "none")
+abundance_change
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "abundance_change.jpeg"), plot = abundance_change, device = "jpeg", width =4, height = 3.5, units = c("in"), dpi = 600)
+
+
+biomass_trend_texts <- data.frame(
+  lat = c(.2, 3),
+  long = 60,
+  labs = c("51% decreases", "49% increases"),
+  Currency = "Biomass driven"
+)
+
+biomass_change <- ggplot(trend_fits, aes(Change, color = Currency, fill = Currency)) +
+  geom_point(aes(y = 0), alpha = 0) +
+  geom_histogram(data = filter(trend_fits, Currency == "Biomass driven"), boundary = 1) +
+  geom_vline(xintercept = 1) +
+  geom_text(data = biomass_trend_texts, aes(lat, long, label = labs)) +
+  scale_x_log10() +
+  xlab("Change over time\n(last fitted value/first fitted value; note log scale)") +
+  ylab("Number of communities") +
+  ggtitle("Biomass-driven change") +
+  both_scale + 
+  both_fscale +
+  theme(legend.position = "none")
+biomass_change
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "biomass_change.jpeg"), plot = biomass_change, device = "jpeg", width =4, height = 3.5, units = c("in"), dpi = 600)
+
+```
+
+```{r decoupling results}
+
+interaction_all_fits <- all_preds_b %>% 
+  # get just the change ratios from the interaction models - regardless of whether the interaction model is the best-fitting model. this is because we want an estimate of the slope, we'll color by model fit in a minute
+  group_by_all() %>% 
+  filter(grepl( "* source",model_formula), model_family == "Gamma") %>%
+  mutate(plus = substr(model_formula, 12,12) == "+") %>% filter(!plus) %>%
+  ungroup() %>%
+  # now join to *winning* formulas to get the best fitting formula
+  left_join(select(winning_fits, matssname, model_formula, modelcomplexity) %>%
+              rename(winning_formula = model_formula)) %>%
+  select(winning_formula, ratio_sim, ratio_real, matssname, modelcomplexity) %>%
+  mutate(currency = "Biomass")
+
+
+
+all_interaction <- bind_rows(interaction_all_fits) %>%
+  mutate(`Best fitting model` = ifelse(modelcomplexity == 1, "No trend", ifelse(modelcomplexity == 2, "Coupled trend", "Decoupled trends")))
+
+
+decoupling_plot <- ggplot(all_interaction, aes(ratio_sim, ratio_real, color = `Best fitting model`)) + 
+  geom_point(alpha = .5) + 
+  scale_y_log10() + 
+  scale_x_log10() + 
+  scale_color_viridis_d(option = "mako", end = .8, direction = -1) + 
+  theme(legend.position = "bottom") + 
+  geom_abline(intercept = 0, slope = 1) + 
+ geom_vline(xintercept = 1, linetype = 2) + 
+  geom_hline(yintercept = 1, linetype =2) +
+  xlab("Individuals-driven change \n Ratio of last fitted value to first fitted value") + 
+  ylab("Biomass-driven change \n Ratio of last fitted value to first fitted value") 
+
+decoupling_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "decoupled_slopes.jpeg"), plot = decoupling_plot, device = "jpeg", width =4, height = 3.5, units = c("in"), dpi = 600)
+
+```
+
+```{r mean mass}
+
+winning_fits <- winning_fits %>%
+  rename(`Best fitting model` = Best.fitting.model)
+isd_mean_change_plot <-  ggplot(winning_fits, aes(log_ratio, color = `Best fitting model`, fill= `Best fitting model`)) + 
+  geom_histogram() + 
+  facet_wrap(vars(`Best fitting model`), scales = 'free_y', ncol = 3) +
+  scale_color_viridis_d(option = "mako", end = .8, direction = -1) +     
+  scale_fill_viridis_d(option = "mako", end = .8, direction = -1) +
+  theme(legend.position = "none") +
+  xlab("Mean mass log ratio") +
+  ylab("Count") +
+  ggtitle("Mean size change")
+isd_mean_change_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch2", "mean_size_change.jpeg"), plot = isd_mean_change_plot, device = "jpeg", width =7, height = 3.5, units = c("in"), dpi = 600)
 
 ```

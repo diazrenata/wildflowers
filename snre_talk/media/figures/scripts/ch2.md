@@ -22,3 +22,9 @@ Chapter 1 figures
 ![](ch2_files/figure-gfm/example%20of%20possible%20couple%20decouple%20trends-1.png)<!-- -->
 
     ## `geom_smooth()` using formula 'y ~ x'
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+![](ch2_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
