@@ -13,6 +13,10 @@ The system-wide attributes of ecological communities - such as community-level a
 
 \newpage
 
+# Acknowledgements
+
+\newpage
+
 # Chapter 1: Introduction
 
 The interplay between system-specific natural history narratives and ubiquitous ecological or even mathematical rules that combine to determine how abundance, biomass, and resource use are distributed among species and organisms and across different levels of organization in ecological communities lies at the core of community ecology [@lawton1994; @mittelbach2011; @brown1995]. A macroecological approach integrates classic modalities of ecological inquiry with conceptual frameworks drawn from across the scope of complex systems studies and computationally-intensive methodologies in order to disentangle the specific processes and dynamics at play in particular systems from general processes that operate across diverse taxonomic, geographic, or temporal contexts [@brown, @mcgill_whathowandwhy]. In this dissertation, I adopt a macroecological perspective to understanding the structure and function of ecological communities, working from a narrow, system-specific focus on a well-studied long-term experiment, to a broad taxonomic and conceptual perspective on the interplay between combinatorics, statistical mechanics, and community ecology. 
@@ -24,6 +28,8 @@ In chapter 3, I undertake a continental-scale comparison across communities to e
 In chapter 4,  I step further back to examine how fundamental mathematical constraints inform our understanding of ecological "laws". Common patterns in community ecology, such as the "hollow-curve" or J-shaped species abundance distribution (SAD), emerge from a combination of biological processes and ubiquitous mathematical constraints on the emergent properties of complex systems. Disentangling the signal of ecological processes from these mathematical constraints can provide new sources of inferential power linking pattern to process in community ecology. I use combinatorics to characterize the mathematical constraint on the SAD, and compare the SADs of 22,000 empirically-observed communities to these "statistical baselines". This reveals that, while empirical SADs often match their statistical baselines, a substantial minority of real SADs deviate from these baselines - leaving an important role for ecological processes in shaping these distributions. 
 
 Takeaways para. 
+
+\newpage
 
 # Chapter 2: Maintenance of community function through compensation breaks down over time in a desert rodent community. 
 
@@ -277,4 +283,17 @@ Our study demonstrates the utility, and the potential challenges, of applying to
 
 \newpage 
 
+# Chapter 5: Concluding remarks
+
+\newpage
+
+
+# Biosketch
+
+Renata Diaz grew up surrounded by the fields of eastern Colorado and the forests of New England, in a family of enthusiastic puzzle solvers and natural historians. During her undergraduate work in Ecology and Evolutionary Biology at Princeton University (class of 2015), she developed a keen interest in the interplay between theoretical, computational, and empirical modalities in ecology. For her senior thesis (advised by Rob Pringle), she combined field experiments with a mathematical model to predict how the joint effects of large mammalian herbivores, small mammalian seed predators, and historical legacies of human-wildlife interactions modulate the spatial distribution of trees in East African savannas. From 2015 to 2017, she continued to explore dimensions of ecology as a research assistant in the Staver Lab at Yale University (2015-2016), a field intern with the Ecology of Bird Loss Project (2016), and a spatial data analysis intern at the Missouri Botanic Garden (2017). In 2017, she joined the Ernest lab at the University of Florida to pursue a PhD in macroecology, combining field work with the Portal Project with data- and computationally- intensive synthesis, software development projects, and intellectually adventurous theoretical pursuits.
+
+\newpage
+
 # References
+
+
