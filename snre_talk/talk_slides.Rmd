@@ -351,17 +351,25 @@ General phenomena = general process?
 
 ## Mathematical contributions to emergent phenomena
 
-Illustrate feasible set
+![Mathematically-generated SADs have realistic J-shapes](media/figures/figs/ch3/feasible_set_draws_plot.jpeg)
 
-## "Statistical baselines" for ecological process
 
-Illustrate deviation from feasible set
+## Real systems may deviate from mathematical constraints
 
-(include %ile score, use evenness)
+![Real SADs are less even than mathematically-constrained ones](media/figures/figs/ch3/feasible_set_draws_plot_real.jpeg)
+
+
+## Real systems may deviate from mathematical constraints
+
+![Real SADs are less even than mathematically-constrained ones](media/figures/figs/ch3/even_hist_example.jpeg)
+
+## Deviations may betray ecological processes
+
+For the Portal rodents from 1994-1999, the real SAD is less even than *100%* of randomly-drawn mathematically generated SADs.
 
 ## Questions
 
-**How common are deviations from statistical baselines?**
+**How common are deviations from statistical baselines across the range of ecological systems?**
 
 **What do they suggest about ecological effects on the SAD?**
 

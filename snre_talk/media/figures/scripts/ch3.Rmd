@@ -80,12 +80,88 @@ ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "example_sads_
 ```
 ```{r feasible set}
 
+#mamm_p <- readRDS(here::here("snre_talk", "media", "figures", "data", "ch3", "masterp_mamm.Rds"))
+# 
+# a_mammal_fs <- feasiblesads::sample_fs(s = nrow(a_mammal_sad), n = sum(a_mammal_sad$abund), nsamples = 4000, p_table = mamm_p)
+# 
+# write.csv(a_mammal_fs, here::here("snre_talk", "media", "figures", "data", "ch3", "mammal_fs_draws.csv"), row.names = F)
+
+a_mammal_fs <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch3", "mammal_fs_draws.csv"), stringsAsFactors = F)
+
+mammal_fs_draws <- a_mammal_fs %>% 
+  as.data.frame() %>%
+  mutate(sim = row_number()) %>%
+  tidyr::pivot_longer(-sim, names_to = "sp", values_to = "abund") %>%
+  group_by(sim) %>%
+  arrange(abund) %>%
+  mutate(rank = row_number(),
+         Evenness = vegan::diversity(abund, index = "simpson"),
+         `SAD type` = "Mathematically generated") %>%
+  ungroup()
+
+a_mammal_sad <- a_mammal_sad %>%
+  mutate(sim = -99, Evenness = vegan::diversity(abund, index = "simpson"),
+         `SAD type` = "Real")
+
+all_mammal_sads <- bind_rows(mammal_fs_draws, a_mammal_sad)
+
+feasible_set_draws_plot <- ggplot(all_mammal_sads, aes(rank, abund, group = sim, color = Evenness, linetype = `SAD type`)) + 
+  geom_line(alpha = 0) +
+  geom_line(data = filter(all_mammal_sads, `SAD type` != "Real")) + 
+#    geom_line(data = filter(all_mammal_sads, `SAD type` == "Real")) + 
+
+  scale_color_viridis_c(option = "mako") +
+  theme(legend.position = "right", legend.direction = "vertical") +
+#  ggtitle("Mathematically-generated SADs") +
+  xlab("Rank") +
+  ylab("Abundance")
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "feasible_set_draws_plot.jpeg"), plot = feasible_set_draws_plot, device = "jpeg", width = 7, height = 4, units = "in", dpi = 600)
+
 
 ```
 
 
 ```{r feasible set with deviation}
 
+
+feasible_set_draws_plot_with_real <- ggplot(all_mammal_sads, aes(rank, abund, group = sim, color = Evenness, linetype = `SAD type`)) + 
+  geom_line(alpha = 0) +
+  geom_line(data = filter(all_mammal_sads, `SAD type` != "Real")) + 
+    geom_line(data = filter(all_mammal_sads, `SAD type` == "Real")) + 
+
+  scale_color_viridis_c(option = "mako") +
+  theme(legend.position = "right", legend.direction = "vertical") +
+#  ggtitle("Mathematically-generated SADs") +
+  xlab("Rank") +
+  ylab("Abundance")
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "feasible_set_draws_plot_real.jpeg"), plot = feasible_set_draws_plot_with_real, device = "jpeg", width = 7, height = 4, units = "in", dpi = 600)
+
+```
+
+```{r evenness hists}
+
+evenness_hist <- ggplot(mammal_fs_draws, aes(Evenness)) + 
+  geom_histogram() +
+  geom_vline(xintercept = a_mammal_sad$Evenness, color = "red") +
+  ylab("Number of SADs") +
+  xlab("Simpson's evenness")
+
+evenness_hist
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "even_hist_example.jpeg"), plot = evenness_hist, device = "jpeg", width = 4, height = 4, units = "in", dpi = 600)
+
+
+```
+
+```{r evenness percentile calc}
+even_scores <- mammal_fs_draws %>%
+  select(sim, Evenness) %>%
+  distinct()
+
+real_even_score <- a_mammal_sad$Evenness %>% unique()
+
+mean(even_scores >= real_even_score)
 
 ```
 
