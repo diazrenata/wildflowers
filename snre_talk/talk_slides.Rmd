@@ -337,15 +337,17 @@ https://www.github.com/diazrenata/invisible-string
 ![R package to facilitate follow-ups](media/illustrations/ch2/BBSsize_placeholder.png)
 
 
-# III. Ecological communities as complex systems: the species abundance distribution as a case study
+# III. Complexity in ecology: the species abundance distribution
 
-## 
+## Ecological systems are complex systems
 
-Community ecology is a mess
+Numerous interacting subcomponents
 
-General phenomena = general process?
+Overwhelmingly challenging to predict
 
-##
+Regular *emergent* patterns: a path to generality?
+
+## The species abundance distribution is an emergent pattern in ecology
 
 ![J-shaped distribution of abundance is the rule](media/figures/figs/ch3/example_sads_plot.jpg)
 
@@ -369,33 +371,43 @@ For the Portal rodents from 1994-1999, the real SAD is less even than *100%* of 
 
 ## Questions
 
-**How common are deviations from statistical baselines across the range of ecological systems?**
+**How common are deviations from mathematical constraints across the range of ecological systems?**
 
 **What do they suggest about ecological effects on the SAD?**
 
-## Challenges
+## Theoretical and computational advances
 
-Sampling the feasible set is nontrivial --> thank you Hao!
+*Characterizing* the mathematical constraint
 
-Taxonomic breadth --> abundance data is widely available and highly general; 22k communities
+Taxonomic breadth: *22,000* communities of birds, mammals, trees, and others
 
-Computational capacity, robust code --> HiPerGator
+![](media/figures/figs/ch3/s_and_n_plot.pdf)
 
-## Empirical SADs deviate from their baselines
+## Empirical SADs are consistently less even than their constraints
 
-(histogram may not be the best visualization of this)
+![](media/figures/figs/ch3/even_results.jpeg)
 
-## Deviations vary among different systems
+## Some communities show unusual deviations
 
-(highlight Gentry communities - biological reasons)
+![](media/figures/figs/ch3/gentry_even_results.jpeg)
 
-## Deviations vary among different systems
+## Some communities show unusual deviations
 
-(highlight FIA communities - small N problem)
+![](media/figures/figs/ch3/s_and_n_plot.pdf)
+
+
+## Deviations are less pronounced for small communities
+
+![](media/figures/figs/ch3/s_and_n_plot.pdf)
+
+## Deviations are less pronounced for small communities
+
+
+![](media/figures/figs/ch3/fia_even_results.jpeg)
 
 ## 
 
-Deviations from statistical baselines can teach us about ecology
+Deviations from mathematical constraints can teach us about ecology
 
 Ecological applications will encounter challenges uncommon in "large-N" systems
 
@@ -411,20 +423,26 @@ https://www.github.com/diazrenata/feasiblesads
 
 # Acknowledgements
 
-## Entities
+## Acknowledgements
 
-NSF; Portal Project; data collection; HiPerGator; SNRE and WEC; weecology
+- My committee: S. K. Morgan Ernest, Ethan White, Justin Kitzes, and Jamie Gillooly
+- SNRE and WEC: especially Karen Bray, Christy LaPlante, and Dr. Reddy
+- The ones who've shared this path, in particular: Hao Ye, Ellen Bledsoe, Pat Dumandan, Sam Zlotnik, and weecologists past, present, and future
+- The ones who've seen me through: _R_, _K_, _r_, _h_, and _J_.
 
-## Humans
 
-Mentors past and present: SKME, EPW, JG, JK, RMP
+![](media/logos/NSF_logo.png)
 
-UF folks, esp. HY, EKB, JS, EMC, PKD, GMY, SZ, JBP
+![](media/logos/uf_logo.png)
 
-RKrh, TORN
+![](media/logos/weecology_logo.png)
+
+
+
 
 ## Questions
 
 
 renata.diaz@weecology.org
+
 https://diazrenata.github.io/home

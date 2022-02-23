@@ -19,6 +19,8 @@ both_fscale <- scale_fill_viridis_d(option = "cividis", begin = .1, end = .8, di
 library(scadsanalysis)
 library(multipanelfigure)
 
+all_di <- read.csv(here::here("snre_talk", "media", "figures", "data", "ch3", "all_di.csv"))
+
 ```
 
 ```{r some demo sads, fig.dim = c(6,3)}
@@ -171,16 +173,90 @@ mean(even_scores >= real_even_score)
 ```
 
 
-```{r overall deviations}
+```{r overall deviations evenness}
+
+all_di <- all_di %>%
+  mutate(log_nparts = log(gmp:::as.double.bigz(nparts)),
+         log_nsamples = log(nsamples),
+         log_s0 = log(s0),
+         log_n0 = log(n0)) %>%
+  filter(n0 != s0,
+         s0 != 1,
+         !singletons,
+         n0 != (s0 + 1)) %>%
+  mutate(dat = ifelse(grepl(dat, pattern = "fia"), "fia", dat),
+         dat = ifelse(dat == "misc_abund_short", "misc_abund", dat)) %>%
+  mutate(Dataset = dat,
+         Dataset = ifelse(Dataset == "fia", "FIA (Trees)", Dataset),
+         Dataset = ifelse(Dataset == "bbs", "Breeding Bird Survey", Dataset),
+         Dataset = ifelse(Dataset == "mcdb", "Mammal Communities", Dataset),
+         Dataset = ifelse(Dataset == "gentry", "Gentry (Trees)", Dataset),
+         Dataset = ifelse(Dataset == "misc_abund", "Misc. Abundance", Dataset)) %>%
+  filter(nparts > 20) %>%
+  mutate(Dataset_short = ifelse(Dataset == "FIA", "FIA", 
+                                ifelse(Dataset == "Breeding Bird Survey", "BBS", 
+                                       ifelse(Dataset == "Mammal Communities", "Mammals", ifelse(Dataset == "Gentry", "Gentry", "Misc.")))))
+
+all_di <- all_di %>%
+  group_by_all() %>%
+  mutate(skew_percentile_mean = mean(skew_percentile, skew_percentile_excl),
+         simpson_percentile_mean = mean(simpson_percentile,simpson_percentile_excl),
+         shannon_percentile_mean = mean(shannon_percentile, shannon_percentile_excl),
+         nsingletons_percentile_mean = mean(nsingletons_percentile, nsingletons_percentile_excl),) %>%
+  ungroup()
 
 
+plot_percentile_hist <- function(di_df, col_name, plot_name, tails = 2, facetvar = "Dataset", min_s0 = 0) {
+  if(tails == 2) {
+    cutoff_percentiles = c(2.5, 97.5)
+    min_nparts = 40
+  } else if (tails== 1) {
+    cutoff_percentiles = c(95)
+    min_nparts = 20
+  }
+
+  di_df <- di_df %>%
+    mutate(response = (di_df[[col_name]]),
+           facetvar = di_df[[facetvar]])
+
+  ggplot(filter(di_df, nparts > min_nparts, s0 >= min_s0), aes(response)) +
+    geom_histogram(bins = 40, boundary = 100) +
+    geom_vline(xintercept = cutoff_percentiles, color = "red") +
+    ggtitle(plot_name) +
+    facet_wrap(vars(facetvar), ncol = 2, scales = "free_y")+
+    scale_y_continuous(n.breaks = 3)
+
+}
+
+evenness_results <- plot_percentile_hist(all_di, "simpson_percentile_mean", "Simpson evenness", facetvar = "Dataset") + 
+  xlab("Percentile score") +
+  ylab("Number of communities")
+
+evenness_results
+
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "even_results.jpeg"), plot = evenness_results, device = "jpeg", width = 5, height = 3, units = "in", dpi = 600)
 ```
 
 ```{r gentry deviations}
 
+just_gentry_results <- plot_percentile_hist(filter(all_di, dat == "gentry"), "simpson_percentile_mean", "Simpson evenness", facetvar = "Dataset") + 
+  xlab("Percentile score") +
+  ylab("Number of communities")
+
+just_gentry_results
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "gentry_even_results.jpeg"), plot = just_gentry_results, device = "jpeg", width = 3, height = 2, units = "in", dpi = 600)
 ```
 
 ```{r fia deviations}
 
 
+just_fia_results <- plot_percentile_hist(filter(all_di, dat %in% c("fia", "fia_short", "fia_small")), "simpson_percentile_mean", "Simpson evenness", facetvar = "Dataset") + 
+  xlab("Percentile score") +
+  ylab("Number of communities")
+
+just_fia_results
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch3", "fia_even_results.jpeg"), plot = just_fia_results, device = "jpeg", width = 3, height = 2, units = "in", dpi = 600)
 ```
