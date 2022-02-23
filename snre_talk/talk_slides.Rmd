@@ -431,11 +431,11 @@ https://www.github.com/diazrenata/feasiblesads
 - The ones who've seen me through: _R_, _K_, _r_, _h_, and _J_.
 
 
-![](media/logos/NSF_logo.png)
+<!-- ![](media/logos/NSF_logo.png) -->
 
-![](media/logos/uf_logo.png)
+<!-- ![](media/logos/uf_logo.png) -->
 
-![](media/logos/weecology_logo.png)
+<!-- ![](media/logos/weecology_logo.png) -->
 
 
 
