@@ -1,7 +1,9 @@
 ---
 output:
-  pdf_document: 
-        default
+  # pdf_document: 
+  #       default
+  word_document:
+          reference_docx: ecology_doc.docx
 csl: ecology.csl
 bibliography: refs.bib
 ---
