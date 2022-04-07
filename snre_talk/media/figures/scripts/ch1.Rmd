@@ -101,3 +101,53 @@ comp_plot_both
 ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "comp_plot_both.jpg"), plot = comp_plot_both, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
 
 ```
+
+
+
+```{r te full plot}
+
+te_mean_gls <- gls(total_e_rat ~ oera,  correlation = corCAR1(form = ~ period), data = total_e_ratio)
+
+te_mean_gls_emmeans <- emmeans(te_mean_gls, specs = ~ oera)
+
+te_mean_pred <-  as.data.frame(te_mean_gls_emmeans) %>%
+  mutate(oera = ordered(oera)) %>%
+  right_join(total_e_ratio)
+
+
+
+te_plot <- ggplot(filter(te_mean_pred, oplottype %in% c("CC", "EE")), aes(censusdate, emmean)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = lower.CL, ymax = upper.CL), alpha = .2) +
+  geom_line(aes(y = total_e_rat_ma)) +
+  ggtitle("Total energy ratio") +
+  ylab("Total energy use on exclosures\nrelative to controls") +
+  xlab("Date") +
+  ylim(0, 1.5)
+
+te_plot
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "te_plot.jpg"), plot = te_plot, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+
+
+
+te_plot_96 <- te_plot +
+  geom_text(data = filter(eras, event_period < 300), aes(x = event_date, y = 1.5, label = event_name), color = "red", inherit.aes = F) +
+    geom_segment(data = filter(eras, event_period < 300), aes(x = event_date, xend = event_date, y = 0, yend = 1.4), inherit.aes = F, linetype = 2, color = "red") 
+
+te_plot_96
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "te_plot_96.jpg"), plot = te_plot_96, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+
+
+
+
+te_plot_both <- te_plot +
+  geom_text(data = eras, aes(x = event_date, y = 1.5, label = event_name), color = "red", inherit.aes = F) +
+    geom_segment(data = eras, aes(x = event_date, xend = event_date, y = 0, yend = 1.4), inherit.aes = F, linetype = 2, color = "red") 
+
+te_plot_both
+
+ggsave(here::here("snre_talk", "media", "figures", "figs", "ch1", "te_plot_both.jpg"), plot = te_plot_both, device = "jpeg", width = 6, height = 4, units = c("in"), dpi = 600)
+
+```
