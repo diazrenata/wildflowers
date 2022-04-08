@@ -1,0 +1,42 @@
+---
+title: "Of rodents and randomness"
+subtitle: "Macroecological approaches to community structure"
+date: "February 28, 2022"
+author: "Renata M. Diaz"
+output: 
+    github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(ggplot2)
+theme_set(theme_bw())
+```
+
+
+```{r}
+
+few_draws <- data.frame(ndraws = 5, val = rnorm(n = 5, mean = 0, sd = 1))
+more_draws <- data.frame(ndraws = 50, val = rnorm(n = 50))
+many_draws <- data.frame(ndraws = 500, val = rnorm(n = 500, mean = 0, sd = 1))
+many_many_draws <- data.frame(ndraws = 5000, val = rnorm(n = 5000, mean = 0, sd = 1))
+
+all_draws <-bind_rows(few_draws, many_draws, more_draws,many_many_draws)
+
+ggplot(all_draws, aes(val)) + geom_histogram() +
+  facet_wrap(vars(ndraws), scales = "free") + 
+  ggtitle("'Small N' problems")
+# 
+# all_draws %>%
+#   ggplot(aes(val)) +
+#   geom_histogram() +
+#  # scale_y_continuous(limits = c(0, most_sold), breaks = seq(0,1e5, by = 5000)) +
+#  # theme_minimal() +
+#   ## gganimate functionality starts here
+#   labs(x = "Value", title = "{frame_time}") +
+#   transition_time(ndraws) +
+#   ease_aes("linear")
+# 
+# anim_save("emergence.gif")
+```
