@@ -7,7 +7,7 @@ _Ecosystem function can be defined pretty broadly, in terms of - say - nutrient 
 
 In both this chapter and elsewhere, it's always nice to see some mention (along with an analysis) of model validation (as in, do residuals indicate that the model structure was reasonable for the data)?
 
-_I've gone back through and checked the residuals for the GLS_ **RMD do a check on model validation/residual checking :(**
+_I've gone back through and checked the residuals for the GLS_ **Include figs**
 
 _residuals look reasonably normally distributed, with some outliers. it's slightly weird because there are really only 3 fitted values (time period mean) vs. the many draws from each time period. also, to my recollection,
 
