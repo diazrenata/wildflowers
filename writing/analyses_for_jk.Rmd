@@ -1,0 +1,33 @@
+---
+title: "Analyses in response to JK comments"
+author: "Renata Diaz"
+date: "5/5/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+
+## Ch 2
+
+### Residuals on GLS
+
+#### Compensation
+
+
+#### Total energy
+
+## Ch 3
+
+### Energy use and biomass showing contrasting patterns
+
+```{r}
+
+```
+
+### Species-level means vs. normal distributions
+
+### Deterministic null model

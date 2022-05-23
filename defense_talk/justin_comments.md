@@ -9,11 +9,11 @@ In both this chapter and elsewhere, it's always nice to see some mention (along 
 
 _I've gone back through and checked the residuals for the GLS_ **Include figs**
 
-_residuals look reasonably normally distributed, with some outliers. it's slightly weird because there are really only 3 fitted values (time period mean) vs. the many draws from each time period. also, to my recollection,
+_residuals look reasonably normally distributed, with some outliers. it's slightly weird because there are really only 3 fitted values (time period mean) vs. the many draws from each time period. also, to my recollection,_
 
 The shift in microhabitats is such an interesting part of the story that it would be good to know more specifically if any shifts were similar in both control and exclosure plots? Have there been periodic measurements of veg in the plots?
 
-_I've been curious about this too! The overall shift towards shrub-versus-grassland has occurred site (and probably region-) wide, apparently facilitated by the mid-1990s La Nina cycle. Specific to the site, we have some shrub cover data. I have not found clear differences in shrub cover between control and exclosure plots (although there is considerable within-treatment variation in shrub cover). The shrub data was collected intermittently over time, so can't be used to make a cross-time-period comparison of changes. We generally find subtle and seasonally inconsistent differences in the species composition of annual plants between the control and exclosure plots._
+_I've been curious about this too! The overall shift towards shrub-versus-grassland has occurred site (and probably region-) wide, apparently facilitated by the mid-1990s La Nina cycle. Specific to the site, we have some shrub cover data. I have not found clear differences in shrub cover between control and exclosure plots (although there is considerable within-treatment variation in shrub cover). The shrub data was collected intermittently over time, so can't be used to make a cross-time-period comparison of changes. We generally find subtle and seasonally inconsistent differences in the species composition of annual plants between the control and exclosure plots (e.g. Christensen et. al 2019: https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2269)._
 
 
 ## Chapt 5
