@@ -20,21 +20,23 @@ _I've been curious about this too! The overall shift towards shrub-versus-grassl
 
 Because of the way that the individual body size is simulated, the entire effect you're seeing is (philosophically) driven by changes in relative and total abundance - I know you know this, just something to keep clear in the text.
 
-_For sure!_
+_Definitely, and thank you for the reminder to keep this clear for the reader!_
 
 
 Is it possible in this framework for biomass and energy to show different patterns?
 
-_Yes._ **RMD find an example of biomass and energy showing not the same pattern.**
+_Yes. For about 1/4 of routes, biomass and energy use fall into different broad "syndromes" of change (no trend, decoupled trend, coupled trend). Changes in energy use do not perfectly mirror changes in biomass because of the 3/4 scaling exponent. In this dataset, the common scenario of detectable change is one of community-wide mean biomass increasing and driving a more positive slope for total biomass dynamics than for individuals-driven dynamics. For these communities, mean energy use also increases, but to a much lesser degree, because the scaling exponent between biomass and energy use is <1. This dampens the effects of increases in body size on total energy use (relative to effects on total biomass) and brings the slope for total energy use back closer to the slope for abundance-driven dynamics. This isn't the only scenario we see, or the only way we arrive at different broad categorizations of dynamics for total energy use and total biomass, but it is how I understand the dataset-wide patterns._
 
 Adding a lot of noise with normal distribution - what difference is there from n individs per species all with identical mass?
 
-_In the limit/on average it should converge. In practice I think using species-level means would tend to amplify change over time._ **RMD run one with species-level means?**
+_This is a good thing to check - in the limit it'd be expected to converge, but ecological data isn't always "in the limit". I re-ran the whole analysis using species-level means and zero intraspecific variation for all individuals. For all but 9 routes (99.3% of routes), the dynamics come out with the results, in terms of syndromes-of-change, under either scenario._
 
 
 Again, why simulate species ID in individuals-driven using a multinomial distribution rather than just using average abundance per species?
 
-_I think either approach is reasonable, and my bias is simply to do things in a probabilistic way._ **RMD rerun one with deterministic**
+_I didn't remember this initially, but when I went to re-run the pipeline using a deterministic null model, I was reminded! In a null model in which a species' abundance in a given timestep is its average abundance times the total number of individuals observed in that timestep, there are non-integer numbers of individuals. Simple rounding schemes don't reproduce the original **total** number of individuals - which we also care about, because it defines the "individual-abundance-driven" dynamics. Rather than come up with a more involved rounding algorithm, I opted for drawing the appropriate number of individuals from the weighted multinomial distribution._
+
+_That said, I did re-run the pipeline with the deterministic null model, using `round` to take care of non-integer abundances. That analysis deviated more from the original analysis than did the species-mean one, but still came out the same for 92% of routes._
 
 
 L176: written as four separate models, I presume it was really a single full model and then reduced models - any reason for using AIC here rather than just P-values on covariates? (There aren't that many and you have lots of data.)
@@ -52,4 +54,4 @@ _I'm not completely sure that I'm understanding this question properly. Do you m
 
 About 10 years ago I sent Ken a way of calculating distribution/conf intervals for SN combos without sampling and can also find mean for each rank - not sure if you saw this or if it would be useful (might be slower than what you did), but just mentioning.
 
-_Interesting! I am looking around at other ways of interacting with the feasible set (and related approaches with different counting rules)._
+_Interesting! I am looking around at other ways of working with the feasible set (and related approaches with different counting rules). I might also be working on a python module for interacting with feasible sets, hopefully a little more efficiently than in the 2020-2021 implementation! As that work spins up, it could be interesting to chat a bit!_
