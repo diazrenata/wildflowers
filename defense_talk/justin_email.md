@@ -1,3 +1,15 @@
+Hi Justin,
+
+I hope your summer is off to a good start! I apologize for the delay in replying - since the defense I've been in the field and then moving, and I wanted to give your comments a thoughtful response.
+
+I've put in comment-by-comment responses below, and happy to chat more about any of this if there's more to dig into! And, more broadly, I just want to say again how much I've appreciated how you've always engaged with this research so thoughtfully and helpfully. There aren't too many folks thinking in this way, and I've always learned something from your perspective! Hopefully we'll continue to cross paths over the years.
+
+Best wishes,
+
+Renata
+
+-----
+
 
 ##  Chapt 4
 
